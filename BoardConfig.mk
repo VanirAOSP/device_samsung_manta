@@ -32,6 +32,9 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
+TARGET_KERNEL_SOURCE = kernel/samsung/manta
+TARGET_KERNEL_CONFIG = manta_defconfig
+
 #Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
