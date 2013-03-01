@@ -1,0 +1,11 @@
+#
+# system.prop for manta
+#
+
+# hardware info
+ro.device.chipset=Exynos 5 Dual 5250
+ro.device.cpu=1.7GHz dual-core Cortex-A15
+ro.device.gpu=ARM Mali T604
+ro.device.rear_cam=5 MP
+ro.device.front_cam=1.9 MP
+ro.device.screen_res=2560x1600
