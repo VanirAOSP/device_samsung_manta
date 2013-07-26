@@ -1,5 +1,4 @@
-#
-# Copyright (C) 2011 The Android Open-Source Project
+# Copyright 2012 The Android Open Source Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -12,6 +11,23 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
-#
 
-PRODUCT_MAKEFILES := $(LOCAL_DIR)/full_manta.mk $(LOCAL_DIR)/aosp_manta.mk
+# Samsung blob(s) necessary for Manta hardware
+PRODUCT_PACKAGES := \
+    fimc_is_fw \
+    fimc_is_fw2 \
+    maxtouch \
+    mfc_fw \
+    setfile \
+    setfile_4e5 \
+    setfile_6a3 \
+    libGLES_mali \
+    libdrmdecrypt \
+    libmalicore \
+    libRSDriverArm \
+    libstagefright_hdcp \
+    00060308060501020000000000000000 \
+    020a0000000000000000000000000000 \
+    07060000000000000000000000000000 \
+    ffffffff000000000000000000000005 \
+

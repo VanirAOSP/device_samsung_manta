@@ -55,6 +55,7 @@ OVERRIDE_RS_DRIVER := libRSDriverArm.so
 USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
+TARGET_RECOVERY_FSTAB = device/samsung/manta/fstab.manta
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 685768704
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 14273216512
@@ -74,7 +75,6 @@ BOARD_HOSTAPD_PRIVATE_LIB   := lib_driver_cmd_bcmdhd
 BOARD_WLAN_DEVICE           := bcmdhd
 WIFI_DRIVER_FW_PATH_PARAM   := "/sys/module/bcmdhd/parameters/firmware_path"
 WIFI_DRIVER_FW_PATH_STA     := "/vendor/firmware/fw_bcmdhd.bin"
-WIFI_DRIVER_FW_PATH_P2P     := "/vendor/firmware/fw_bcmdhd_p2p.bin"
 WIFI_DRIVER_FW_PATH_AP      := "/vendor/firmware/fw_bcmdhd_apsta.bin"
 
 BOARD_LIB_DUMPSTATE := libdumpstate.manta
@@ -85,9 +85,20 @@ TARGET_RECOVERY_PIXEL_FORMAT := RGBX_8888
 TARGET_RECOVERY_UI_LIB := librecovery_ui_manta
 TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_manta
 TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/manta
-BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 
-BOARD_HAS_NO_SELECT_BUTTON := true
+BOARD_SEPOLICY_DIRS := \
+	device/samsung/manta/sepolicy
 
-# Support WebGL in WebKit
-ENABLE_WEBGL := true
+BOARD_SEPOLICY_UNION := \
+	file_contexts \
+	genfs_contexts \
+	adbd.te \
+	app.te \
+	compatibility.te \
+	device.te \
+	domain.te \
+	gpsd.te \
+	file.te \
+	mediaserver.te \
+	surfaceflinger.te \
+	system.te
