@@ -32,6 +32,7 @@ TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 TARGET_ARCH_VARIANT_CPU := cortex-a15
+TARGET_CPU_VARIANT := cortex-a15
 
 # Enable various prefetch optimizations
 COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
@@ -56,6 +57,7 @@ USE_OPENGL_RENDERER := true
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
 
 TARGET_RECOVERY_FSTAB = device/samsung/manta/fstab.manta
+RECOVERY_FSTAB_VERSION := 2
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_SYSTEMIMAGE_PARTITION_SIZE := 685768704
 BOARD_USERDATAIMAGE_PARTITION_SIZE := 14273216512
@@ -86,6 +88,13 @@ TARGET_RECOVERY_UI_LIB := librecovery_ui_manta
 TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_manta
 TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/manta
 
+BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
+
+BOARD_HAS_NO_SELECT_BUTTON := true
+
+# Support WebGL in WebKit
+ENABLE_WEBGL := true
+
 BOARD_SEPOLICY_DIRS := \
 	device/samsung/manta/sepolicy
 
@@ -94,7 +103,6 @@ BOARD_SEPOLICY_UNION := \
 	genfs_contexts \
 	adbd.te \
 	app.te \
-	compatibility.te \
 	device.te \
 	domain.te \
 	gpsd.te \
