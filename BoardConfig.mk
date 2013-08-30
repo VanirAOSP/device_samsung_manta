@@ -92,6 +92,9 @@ BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 
 BOARD_HAS_NO_SELECT_BUTTON := true
 
+# Default card id for USB audio
+BOARD_USB_AUDIO_CARD_ID := 2
+
 # Support WebGL in WebKit
 ENABLE_WEBGL := true
 
