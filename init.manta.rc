@@ -21,7 +21,6 @@ on init
     mkdir /storage/usbdisk 0666 system system
     symlink /storage/usbdisk /mnt/usbdisk
     symlink /mnt/usbdisk /usbdisk
-
 # KSM
     write /sys/kernel/mm/ksm/pages_to_scan 100
     write /sys/kernel/mm/ksm/sleep_millisecs 500
