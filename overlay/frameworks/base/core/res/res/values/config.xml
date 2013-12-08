@@ -181,9 +181,6 @@
          true forces it to use the/dev/input/event subsystem. -->
     <bool name="config_useDevInputEventForAudioJack">true</bool>
 
-    <!-- Setting to false will disable the IME switcher implementation for tablets -->
-    <bool name="config_show_IMEswitcher">true</bool>
-
     <bool name="config_enableWifiDisplay">true</bool>
 
     <!-- Translucent status & navigation bars perform poorly on this device -->
