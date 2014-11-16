@@ -30,7 +30,6 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_CPU_SMP := true
 TARGET_ARCH := arm
 TARGET_ARCH_VARIANT := armv7-a-neon
-TARGET_ARCH_VARIANT_CPU := cortex-a15
 TARGET_CPU_VARIANT := cortex-a15
 
 # Enable QC's libm optimizations
@@ -39,10 +38,6 @@ TARGET_USE_QCOM_BIONIC_OPTIMIZATION := true
 # Define kernel config for inline building
 TARGET_KERNEL_CONFIG := cyanogenmod_manta_defconfig
 TARGET_KERNEL_SOURCE := kernel/samsung/manta
-TARGET_KERNEL_CUSTOM_TOOLCHAIN := arm-eabi-4.7
-
-# Enable various prefetch optimizations
-COMMON_GLOBAL_CFLAGS += -D__ARM_USE_PLD -D__ARM_CACHE_LINE_SIZE=64
 
 #Bluetooth
 BOARD_HAVE_BLUETOOTH := true
@@ -92,7 +87,6 @@ BOARD_CHARGER_DISABLE_INIT_BLANK := true
 
 TARGET_RECOVERY_UPDATER_LIBS += librecovery_updater_manta
 TARGET_RELEASETOOLS_EXTENSIONS := device/samsung/manta
-
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_23x41.h\"
 BOARD_RECOVERY_SWIPE := true
 
