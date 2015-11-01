@@ -42,6 +42,7 @@ TARGET_KERNEL_SOURCE := kernel/samsung/manta
 #Bluetooth
 BOARD_HAVE_BLUETOOTH := true
 BOARD_HAVE_BLUETOOTH_BCM := true
+BCM_BLUETOOTH_MANTA_BUG := true
 
 TARGET_NO_BOOTLOADER := true
 
@@ -68,6 +69,10 @@ BOARD_USERDATAIMAGE_PARTITION_SIZE := 14273216512
 BOARD_CACHEIMAGE_PARTITION_SIZE := 553648128
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
 BOARD_FLASH_BLOCK_SIZE := 4096
+
+WITH_DEXPREOPT_BOOT_IMG_ONLY ?= false
+WITH_DEXPREOPT := false
+DONT_DEXPREOPT_PREBUILTS := true
 
 #TARGET_PROVIDES_INIT_RC := true
 #TARGET_USERIMAGES_SPARSE_EXT_DISABLED := true
@@ -102,17 +107,6 @@ ENABLE_WEBGL := true
 
 BOARD_SEPOLICY_DIRS += \
 	device/samsung/manta/sepolicy
-
-BOARD_SEPOLICY_UNION += \
-	file_contexts \
-	device.te \
-	domain.te \
-	drmserver.te \
-	healthd.te \
-	gpsd.te \
-	file.te \
-	mediaserver.te \
-	system_server.te
 
 MALLOC_IMPL := dlmalloc
 
