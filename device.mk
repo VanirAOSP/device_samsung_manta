@@ -14,14 +14,7 @@
 # limitations under the License.
 #
 
-ifeq ($(TARGET_PREBUILT_KERNEL),)
-LOCAL_KERNEL := device/samsung/manta/kernel
-else
-LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
-endif
-
 PRODUCT_COPY_FILES := \
-    $(LOCAL_KERNEL):kernel \
     device/samsung/manta/init.manta.rc:root/init.manta.rc \
     device/samsung/manta/init.manta.usb.rc:root/init.manta.usb.rc \
     device/samsung/manta/init.recovery.manta.rc:root/init.recovery.manta.rc \
@@ -92,13 +85,6 @@ PRODUCT_PACKAGES += \
     Tag \
     com.android.nfc_extras
 
-# NFCEE access control
-ifeq ($(TARGET_BUILD_VARIANT),user)
-    NFCEE_ACCESS_PATH := device/samsung/manta/nfc/nfcee_access.xml
-else
-    NFCEE_ACCESS_PATH := device/samsung/manta/nfc/nfcee_access_debug.xml
-endif
-
 # NFC access control + feature files + configuration
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.xml:system/etc/permissions/android.hardware.nfc.xml \
@@ -134,10 +120,6 @@ PRODUCT_PACKAGES += \
     libion
 
 PRODUCT_PACKAGES += \
-    librs_jni \
-    com.android.future.usb.accessory
-
-PRODUCT_PACKAGES += \
     audio.primary.manta \
     audio.a2dp.default \
     audio.usb.default \
@@ -146,10 +128,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_PACKAGES += \
     power.manta
-
-# Filesystem management tools
-PRODUCT_PACKAGES += \
-    e2fsck
 
 PRODUCT_PROPERTY_OVERRIDES := \
     wifi.interface=wlan0 \
@@ -170,7 +148,6 @@ PRODUCT_PROPERTY_OVERRIDES := \
     af.fast_track_multiplier=1
 
 PRODUCT_PROPERTY_OVERRIDES += \
-    dalvik.vm.dex2oat-filter=speed \
     dalvik.vm.dex2oat-swap=false
 
 # setup dalvik vm configs.
@@ -179,11 +156,6 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 # Enable AAC 5.1 output
 PRODUCT_PROPERTY_OVERRIDES += \
     media.aac_51_output_enabled=true
-
-# set default USB configuration
-PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-    persist.sys.usb.config=mtp \
-    persist.sys.isUsbOtgEnabled=true
 
 # for off charging mode
 PRODUCT_PACKAGES += \
@@ -194,7 +166,6 @@ PRODUCT_PACKAGES += \
     Gello
 
 $(call inherit-product-if-exists, hardware/samsung_slsi/exynos5/exynos5.mk)
-$(call inherit-product-if-exists, vendor/samsung_slsi/exynos5/exynos5-vendor.mk)
-$(call inherit-product-if-exists, vendor/samsung/manta/device-vendor.mk)
+$(call inherit-product-if-exists, vendor/samsung/manta/manta-vendor.mk)
 
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4324/device-bcm.mk)
